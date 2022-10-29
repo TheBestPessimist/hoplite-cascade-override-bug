@@ -9,7 +9,7 @@ import kotlin.test.assertEquals
 
 @OptIn(ExperimentalHoplite::class)
 val config: Config = ConfigLoader.builder()
-    .addResourceOrFileSource("/application.properties")
+    .addResourceOrFileSource("/application.properties") // the contents of this file should be ignored, but is not (see google credentials)
     .addResourceOrFileSource("/a1.properties")
     .addResourceOrFileSource(".env.properties") // must always be last as it contains the super secret stuff and is ignored by git.
     .withCascadeMode(CascadeMode.Override)
